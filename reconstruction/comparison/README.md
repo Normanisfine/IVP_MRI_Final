@@ -17,22 +17,20 @@ Evaluation results for Score-based and VarNet reconstruction methods.
 **Logs:**
 - `score_*.err/.out` - Comparison job logs
 
-## Results (N=600, 4× acceleration)
+## Results (4× Acceleration)
 
-**Score-based Methods:**
+**All Methods:**
 
 | Method | PSNR (dB) | MSE | Time |
 |--------|-----------|-----|------|
+| VarNet | 34.6 ± 3.8 | 2.72e-11 | 0.24 s/slice |
 | SSOS | 27.6 ± 1.5 | 2.49e-03 | ~97 min |
 | SENSE | 24.4 ± 4.6 | 9.80e-03 | ~7.7 min |
 
-- **Speedup**: SENSE is 12.5× faster than SSOS
-- **Quality**: SSOS has 3.2 dB better PSNR
-
-**VarNet:**
-- Time: ~2-5 seconds
-- PSNR: ~25-28 dB
-- ~1000× faster than Score methods
+**Key Findings:**
+- VarNet achieves **best quality** (7 dB better than SSOS)
+- VarNet is **fastest** (24,000× faster than SSOS)
+- SENSE offers 12.5× speedup over SSOS for score-based methods
 
 ## Usage
 
@@ -49,6 +47,6 @@ python test_varnet_compare.py \
 
 ## Recommendation
 
-- **Best quality**: Use SSOS
-- **Speed/quality balance**: Use SENSE
-- **Real-time**: Use VarNet
+- **Best choice**: Use VarNet (highest quality + fastest)
+- **Score-based alternative**: Use SSOS for diffusion-based reconstruction
+- **Fast score-based**: Use SENSE for 12.5× speedup over SSOS

@@ -44,11 +44,11 @@ python test_varnet_compare.py
 
 ## Results (4× Acceleration)
 
-| Method | PSNR (dB) | Time | Speedup |
-|--------|-----------|------|---------|
-| SSOS | 27.6 ± 1.5 | ~97 min | 1× |
-| SENSE | 24.4 ± 4.6 | ~7.7 min | 12.5× |
-| VarNet | ~25-28 | ~5 sec | ~1000× |
+| Method | PSNR (dB) | Time | Performance |
+|--------|-----------|------|-------------|
+| VarNet | 34.6 ± 3.8 | 0.24 s/slice | **Best quality & speed** |
+| SSOS | 27.6 ± 1.5 | ~97 min | 7 dB lower PSNR |
+| SENSE | 24.4 ± 4.6 | ~7.7 min | 10 dB lower PSNR |
 
 **Dataset**: 197 FastMRI knee files (137 train, 29 val, 31 test)
 

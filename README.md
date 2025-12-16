@@ -20,9 +20,9 @@ IVP_MRI_Final/
 
 | Method | PSNR (dB) | Time | Notes |
 |--------|-----------|------|-------|
-| Score SSOS | 27.6 ± 1.5 | ~97 min | Best quality |
-| Score SENSE | 24.4 ± 4.6 | ~7.7 min | 12.5× faster |
-| VarNet | ~25-28 | ~5 sec | Fastest |
+| VarNet | 34.6 ± 3.8 | 0.24 s/slice | **Best quality & fastest** |
+| Score SSOS | 27.6 ± 1.5 | ~97 min | High quality |
+| Score SENSE | 24.4 ± 4.6 | ~7.7 min | Fast |
 
 **Dataset**: 197 FastMRI files (70% train, 15% val, 15% test)
 
