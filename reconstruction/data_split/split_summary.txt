@@ -1,0 +1,17 @@
+FastMRI Knee Data Split Summary
+========================================
+
+Source directory: /scratch/ml8347/MRI/Dataset/FastMRI/knee/multicoil_train
+Output directory: /scratch/ml8347/MRI/train/train_dataset
+Split ratios: Train=0.7, Val=0.15, Test=0.15
+Random seed: 42
+Copy mode: copy
+
+Dataset Statistics:
+- Total files: 197
+- Train files: 137 (69.5%)
+- Validation files: 29 (14.7%)
+- Test files: 31 (15.7%)
+
+This split ensures reproducible train/val/test sets for MRI reconstruction experiments.
+All files are multi-coil FastMRI knee images in HDF5 format.

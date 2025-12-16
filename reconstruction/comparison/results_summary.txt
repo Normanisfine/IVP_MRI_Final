@@ -1,0 +1,46 @@
+Score-based MRI Reconstruction Comparison
+==========================================
+
+Configuration:
+- Mask: equispaced_fraction
+- Acceleration: 4×
+- Center fraction: 0.08
+- Diffusion steps (N): 600
+- Corrector steps (m): 1
+- Checkpoint: checkpoint_50.pth
+
+Test Set: 5 FastMRI knee multi-coil samples
+
+Results
+=======
+
+SENSE (Fast):
+- PSNR: 24.4 ± 4.6 dB
+- MSE: 9.80e-03 ± 8.37e-03
+- Time: 464.5 ± 10.3 seconds (~7.7 min)
+- Evaluations: ~2,000 (combined image)
+
+SSOS (High Quality):
+- PSNR: 27.6 ± 1.5 dB
+- MSE: 2.49e-03 ± 9.00e-04
+- Time: 5831.6 ± 2.5 seconds (~97 min)
+- Evaluations: ~30,000 (15 coils × 2,000 steps)
+
+Performance
+===========
+
+Speed: SENSE is 12.5× faster than SSOS
+Quality: SSOS is 3.2 dB better PSNR
+
+Recommendation
+==============
+
+Use SENSE for:
+- Large batch processing
+- Time-constrained scenarios
+- Good quality reconstructions
+
+Use SSOS for:
+- Publication-quality results
+- Best PSNR requirements
+- When time is not critical

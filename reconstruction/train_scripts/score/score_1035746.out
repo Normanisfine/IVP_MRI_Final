@@ -1,0 +1,9 @@
+Starting training job...
+Using dataset at: /scratch/ml8347/3dgs/input/1
+Output will be saved to: /scratch/ml8347/3dgs/output/2
+Overlay: /scratch/ml8347/MRI/scoreMRI/env/overlay-25GB-500K.ext3
+Singularity image: /scratch/ml8347/MRI/base_env/cuda11.8.86-cudnn8.7-devel-ubuntu22.04.2.sif
+Starting multicoil knee training...
+Dataset: /scratch/ml8347/MRI/train/train_dataset
+Workdir: /scratch/ml8347/MRI/train/score/workdir/fastmri_multicoil_knee_320
+Eval dir: /scratch/ml8347/MRI/train/score/eval/fastmri_multicoil_knee_320

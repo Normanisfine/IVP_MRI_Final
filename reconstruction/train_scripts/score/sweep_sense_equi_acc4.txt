@@ -1,0 +1,24 @@
+SENSE checkpoint sweep (equispaced_fraction acc=4)
+Data: /scratch/ml8347/MRI/train/train_dataset/multicoil_val/file1000015.h5
+Checkpoint dir: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints
+Mask: equispaced_fraction, acc_factor=4, center_fraction=0.08
+N=500, m=1, slice_idx=middle(default)
+Save root: /scratch/ml8347/MRI/train/score/recon_sweep_equi_acc4
+
+   ckpt          ok           MSE    PSNR(dB)     time(s)  error
+----------------------------------------------------------------
+     50        True  7.714363e-03      24.325     388.326  
+     70        True  7.766425e-03      24.295     389.278  
+     90        True  7.732256e-03      24.314     389.515  
+    110        True  7.745605e-03      24.307     389.359  
+    130        True  7.825957e-03      24.262     389.511  
+    150        True  7.817869e-03      24.267     389.704  
+    160        True  7.828940e-03      24.260     389.648  
+
+Best checkpoint by PSNR : checkpoint_50.pth (PSNR=24.325 dB, MSE=7.714363e-03)
+Best checkpoint by MSE  : checkpoint_50.pth (MSE=7.714363e-03, PSNR=24.325 dB)
+
+Summary over 7 successful checkpoints:
+  MSE  mean/std : 7.775917e-03 / 4.792276e-05
+  PSNR mean/std : 24.290 / 0.027 dB
+  Time mean/std : 389.334 / 0.469 s

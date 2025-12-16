@@ -1,0 +1,29 @@
+Score MRI compare evaluation
+Mask: equispaced_fraction, acc_factor=4, center_fraction=0.08
+N=600, m=1, slice_idx=middle(default)
+Checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+Save dir: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4
+
+method  file                     MSE    PSNR(dB)     time(s)
+------------------------------------------------------------
+SENSE   file1000060.h5  1.911818e-02      20.232     482.861
+SENSE   file1000089.h5  3.110029e-03      28.134     460.713
+SENSE   file1000094.h5  1.173699e-03      30.252     460.455
+SENSE   file1000311.h5  1.809760e-02      20.417     459.563
+SENSE   file1000331.h5  7.512457e-03      23.172     459.079
+SSOS    file1000060.h5  3.015212e-03      27.364    5829.092
+SSOS    file1000089.h5  2.691010e-03      28.458    5830.680
+SSOS    file1000094.h5  1.055111e-03      29.156    5831.135
+SSOS    file1000311.h5  2.277431e-03      27.915    5831.231
+SSOS    file1000331.h5  3.395431e-03      25.182    5835.674
+
+SENSE summary over 5 files:
+  MSE mean/std  : 9.802393e-03 / 8.367799e-03
+  PSNR mean/std : 24.441 / 4.553 dB
+  Time mean/std : 464.534 / 10.267 s
+
+SSOS summary over 5 files:
+  MSE mean/std  : 2.486839e-03 / 9.000139e-04
+  PSNR mean/std : 27.615 / 1.513 dB
+  Time mean/std : 5831.563 / 2.454 s
+

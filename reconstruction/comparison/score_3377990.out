@@ -1,0 +1,794 @@
+Starting training job...
+Using dataset at: /scratch/ml8347/3dgs/input/1
+Output will be saved to: /scratch/ml8347/3dgs/output/2
+Overlay: /scratch/ml8347/MRI/scoreMRI/env/overlay-25GB-500K.ext3
+Singularity image: /scratch/ml8347/MRI/base_env/cuda11.8.86-cudnn8.7-devel-ubuntu22.04.2.sif
+Using PyTorch native CUDA operations (custom kernels disabled)
+Using PyTorch native operations for upfirdn2d (custom kernels disabled)
+============================================================
+🚀 Starting SENSE MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.034 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000060.h5
+Loaded slice 16/33 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000060.h5
+K-space shape: (15, 640, 372)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 1.374 seconds
+⏱️  Mask creation: 0.575 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 5.413 seconds
+⏱️  Directory setup: 0.017 seconds
+⏱️  K-space operations: 0.527 seconds
+
+🧲 Estimating sensitivity maps...
+   Sensitivity maps shape: torch.Size([1, 15, 320, 320])
+⏱️  Sensitivity estimation: 3.184 seconds
+
+🔄 Setting up SENSE inference pipeline...
+⏱️  SENSE Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+
+🎯 Beginning SENSE inference with 600 steps...
+   This is ~15x faster than per-coil processing!
+
+🔄 Starting SENSE PC Sampler with 600 steps
+   Working with SINGLE combined image (not 15 coils separately)
+⏱️  Initial sampling: 0.1143 seconds
+   x shape: torch.Size([1, 1, 320, 320]) (single combined image)
+  Step 100: 0.867s | Pred: 0.3863s | Corr: 0.3744s | DC: 0.0010s
+  Step 200: 0.866s | Pred: 0.3810s | Corr: 0.3745s | DC: 0.0010s
+  Step 300: 0.867s | Pred: 0.3795s | Corr: 0.3749s | DC: 0.0010s
+  Step 400: 0.870s | Pred: 0.3790s | Corr: 0.3753s | DC: 0.0009s
+  Step 500: 0.869s | Pred: 0.3787s | Corr: 0.3755s | DC: 0.0009s
+
+📊 SENSE PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:     227.097s ( 49.9%)
+Total corrector time:     225.448s ( 49.5%)
+Total DC time:              1.138s (  0.2%)
+Total save time:            1.434s (  0.3%)
+Initial sampling:           0.114s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:       455.440s
+Average per step:           0.759s
+Model calls per step:    2 (vs 30 for per-coil)
+Speedup vs per-coil:     ~15x
+==================================================
+⏱️  Main reconstruction: 455.440 seconds
+⏱️  Post-processing: 0.071 seconds
+⏱️  Saving results: 0.490 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.034s (  0.0%)
+Data loading & prep:        1.374s (  0.3%)
+Mask creation:              0.575s (  0.1%)
+Model loading & setup:      5.413s (  1.2%)
+Directory setup:            0.017s (  0.0%)
+K-space operations:         0.527s (  0.1%)
+Sensitivity estimation:     3.184s (  0.7%)
+Inference setup:            0.000s (  0.0%)
+Main reconstruction:      455.440s ( 97.5%)
+Post-processing:            0.071s (  0.0%)
+Saving results:             0.490s (  0.1%)
+------------------------------------------------------------
+TOTAL TIME:               467.127s
+============================================================
+
+✅ SENSE Reconstruction completed!
+📈 MSE: 0.019118
+📈 PSNR: 20.23 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SENSE
+
+🚀 SENSE speedup: ~15x faster than per-coil processing!
+============================================================
+🚀 Starting SENSE MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.000 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000089.h5
+Loaded slice 19/39 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000089.h5
+K-space shape: (15, 640, 368)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 0.977 seconds
+⏱️  Mask creation: 0.001 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 3.702 seconds
+⏱️  Directory setup: 0.003 seconds
+⏱️  K-space operations: 0.001 seconds
+
+🧲 Estimating sensitivity maps...
+   Sensitivity maps shape: torch.Size([1, 15, 320, 320])
+⏱️  Sensitivity estimation: 0.003 seconds
+
+🔄 Setting up SENSE inference pipeline...
+⏱️  SENSE Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+
+🎯 Beginning SENSE inference with 600 steps...
+   This is ~15x faster than per-coil processing!
+
+🔄 Starting SENSE PC Sampler with 600 steps
+   Working with SINGLE combined image (not 15 coils separately)
+⏱️  Initial sampling: 0.0003 seconds
+   x shape: torch.Size([1, 1, 320, 320]) (single combined image)
+  Step 100: 0.870s | Pred: 0.3770s | Corr: 0.3765s | DC: 0.0009s
+  Step 200: 0.878s | Pred: 0.3775s | Corr: 0.3767s | DC: 0.0009s
+  Step 300: 0.871s | Pred: 0.3776s | Corr: 0.3768s | DC: 0.0009s
+  Step 400: 0.870s | Pred: 0.3777s | Corr: 0.3768s | DC: 0.0009s
+  Step 500: 0.863s | Pred: 0.3777s | Corr: 0.3768s | DC: 0.0009s
+
+📊 SENSE PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:     226.641s ( 49.8%)
+Total corrector time:     226.116s ( 49.7%)
+Total DC time:              1.142s (  0.3%)
+Total save time:            1.343s (  0.3%)
+Initial sampling:           0.000s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:       455.351s
+Average per step:           0.759s
+Model calls per step:    2 (vs 30 for per-coil)
+Speedup vs per-coil:     ~15x
+==================================================
+⏱️  Main reconstruction: 455.351 seconds
+⏱️  Post-processing: 0.072 seconds
+⏱️  Saving results: 0.445 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.000s (  0.0%)
+Data loading & prep:        0.977s (  0.2%)
+Mask creation:              0.001s (  0.0%)
+Model loading & setup:      3.702s (  0.8%)
+Directory setup:            0.003s (  0.0%)
+K-space operations:         0.001s (  0.0%)
+Sensitivity estimation:     0.003s (  0.0%)
+Inference setup:            0.000s (  0.0%)
+Main reconstruction:      455.351s ( 98.9%)
+Post-processing:            0.072s (  0.0%)
+Saving results:             0.445s (  0.1%)
+------------------------------------------------------------
+TOTAL TIME:               460.554s
+============================================================
+
+✅ SENSE Reconstruction completed!
+📈 MSE: 0.003110
+📈 PSNR: 28.13 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SENSE
+
+🚀 SENSE speedup: ~15x faster than per-coil processing!
+============================================================
+🚀 Starting SENSE MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.000 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000094.h5
+Loaded slice 16/33 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000094.h5
+K-space shape: (15, 640, 368)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 0.887 seconds
+⏱️  Mask creation: 0.000 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 3.480 seconds
+⏱️  Directory setup: 0.003 seconds
+⏱️  K-space operations: 0.001 seconds
+
+🧲 Estimating sensitivity maps...
+   Sensitivity maps shape: torch.Size([1, 15, 320, 320])
+⏱️  Sensitivity estimation: 0.003 seconds
+
+🔄 Setting up SENSE inference pipeline...
+⏱️  SENSE Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+
+🎯 Beginning SENSE inference with 600 steps...
+   This is ~15x faster than per-coil processing!
+
+🔄 Starting SENSE PC Sampler with 600 steps
+   Working with SINGLE combined image (not 15 coils separately)
+⏱️  Initial sampling: 0.0003 seconds
+   x shape: torch.Size([1, 1, 320, 320]) (single combined image)
+  Step 100: 0.873s | Pred: 0.3772s | Corr: 0.3767s | DC: 0.0010s
+  Step 200: 0.872s | Pred: 0.3775s | Corr: 0.3768s | DC: 0.0010s
+  Step 300: 0.872s | Pred: 0.3776s | Corr: 0.3769s | DC: 0.0010s
+  Step 400: 0.870s | Pred: 0.3776s | Corr: 0.3769s | DC: 0.0010s
+  Step 500: 0.867s | Pred: 0.3777s | Corr: 0.3769s | DC: 0.0010s
+
+📊 SENSE PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:     226.620s ( 49.8%)
+Total corrector time:     226.155s ( 49.7%)
+Total DC time:              1.154s (  0.3%)
+Total save time:            1.347s (  0.3%)
+Initial sampling:           0.000s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:       455.384s
+Average per step:           0.759s
+Model calls per step:    2 (vs 30 for per-coil)
+Speedup vs per-coil:     ~15x
+==================================================
+⏱️  Main reconstruction: 455.384 seconds
+⏱️  Post-processing: 0.071 seconds
+⏱️  Saving results: 0.469 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.000s (  0.0%)
+Data loading & prep:        0.887s (  0.2%)
+Mask creation:              0.000s (  0.0%)
+Model loading & setup:      3.480s (  0.8%)
+Directory setup:            0.003s (  0.0%)
+K-space operations:         0.001s (  0.0%)
+Sensitivity estimation:     0.003s (  0.0%)
+Inference setup:            0.000s (  0.0%)
+Main reconstruction:      455.384s ( 98.9%)
+Post-processing:            0.071s (  0.0%)
+Saving results:             0.469s (  0.1%)
+------------------------------------------------------------
+TOTAL TIME:               460.299s
+============================================================
+
+✅ SENSE Reconstruction completed!
+📈 MSE: 0.001174
+📈 PSNR: 30.25 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SENSE
+
+🚀 SENSE speedup: ~15x faster than per-coil processing!
+============================================================
+🚀 Starting SENSE MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.000 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000311.h5
+Loaded slice 15/30 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000311.h5
+K-space shape: (15, 640, 322)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 0.723 seconds
+⏱️  Mask creation: 0.000 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 2.685 seconds
+⏱️  Directory setup: 0.002 seconds
+⏱️  K-space operations: 0.001 seconds
+
+🧲 Estimating sensitivity maps...
+   Sensitivity maps shape: torch.Size([1, 15, 320, 320])
+⏱️  Sensitivity estimation: 0.003 seconds
+
+🔄 Setting up SENSE inference pipeline...
+⏱️  SENSE Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+
+🎯 Beginning SENSE inference with 600 steps...
+   This is ~15x faster than per-coil processing!
+
+🔄 Starting SENSE PC Sampler with 600 steps
+   Working with SINGLE combined image (not 15 coils separately)
+⏱️  Initial sampling: 0.0003 seconds
+   x shape: torch.Size([1, 1, 320, 320]) (single combined image)
+  Step 100: 0.872s | Pred: 0.3774s | Corr: 0.3768s | DC: 0.0010s
+  Step 200: 0.872s | Pred: 0.3776s | Corr: 0.3769s | DC: 0.0010s
+  Step 300: 0.871s | Pred: 0.3776s | Corr: 0.3769s | DC: 0.0010s
+  Step 400: 0.873s | Pred: 0.3777s | Corr: 0.3769s | DC: 0.0010s
+  Step 500: 0.869s | Pred: 0.3777s | Corr: 0.3769s | DC: 0.0010s
+
+📊 SENSE PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:     226.641s ( 49.8%)
+Total corrector time:     226.169s ( 49.7%)
+Total DC time:              1.152s (  0.3%)
+Total save time:            1.352s (  0.3%)
+Initial sampling:           0.000s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:       455.422s
+Average per step:           0.759s
+Model calls per step:    2 (vs 30 for per-coil)
+Speedup vs per-coil:     ~15x
+==================================================
+⏱️  Main reconstruction: 455.422 seconds
+⏱️  Post-processing: 0.071 seconds
+⏱️  Saving results: 0.498 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.000s (  0.0%)
+Data loading & prep:        0.723s (  0.2%)
+Mask creation:              0.000s (  0.0%)
+Model loading & setup:      2.685s (  0.6%)
+Directory setup:            0.002s (  0.0%)
+K-space operations:         0.001s (  0.0%)
+Sensitivity estimation:     0.003s (  0.0%)
+Inference setup:            0.000s (  0.0%)
+Main reconstruction:      455.422s ( 99.1%)
+Post-processing:            0.071s (  0.0%)
+Saving results:             0.498s (  0.1%)
+------------------------------------------------------------
+TOTAL TIME:               459.407s
+============================================================
+
+✅ SENSE Reconstruction completed!
+📈 MSE: 0.018098
+📈 PSNR: 20.42 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SENSE
+
+🚀 SENSE speedup: ~15x faster than per-coil processing!
+============================================================
+🚀 Starting SENSE MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.000 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000331.h5
+Loaded slice 17/34 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000331.h5
+K-space shape: (15, 640, 368)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 0.953 seconds
+⏱️  Mask creation: 0.001 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 2.013 seconds
+⏱️  Directory setup: 0.003 seconds
+⏱️  K-space operations: 0.001 seconds
+
+🧲 Estimating sensitivity maps...
+   Sensitivity maps shape: torch.Size([1, 15, 320, 320])
+⏱️  Sensitivity estimation: 0.003 seconds
+
+🔄 Setting up SENSE inference pipeline...
+⏱️  SENSE Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+
+🎯 Beginning SENSE inference with 600 steps...
+   This is ~15x faster than per-coil processing!
+
+🔄 Starting SENSE PC Sampler with 600 steps
+   Working with SINGLE combined image (not 15 coils separately)
+⏱️  Initial sampling: 0.0003 seconds
+   x shape: torch.Size([1, 1, 320, 320]) (single combined image)
+  Step 100: 0.871s | Pred: 0.3773s | Corr: 0.3767s | DC: 0.0010s
+  Step 200: 0.871s | Pred: 0.3776s | Corr: 0.3770s | DC: 0.0010s
+  Step 300: 0.871s | Pred: 0.3777s | Corr: 0.3770s | DC: 0.0010s
+  Step 400: 0.870s | Pred: 0.3777s | Corr: 0.3770s | DC: 0.0010s
+  Step 500: 0.866s | Pred: 0.3778s | Corr: 0.3770s | DC: 0.0010s
+
+📊 SENSE PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:     226.658s ( 49.8%)
+Total corrector time:     226.178s ( 49.7%)
+Total DC time:              1.150s (  0.3%)
+Total save time:            1.335s (  0.3%)
+Initial sampling:           0.000s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:       455.429s
+Average per step:           0.759s
+Model calls per step:    2 (vs 30 for per-coil)
+Speedup vs per-coil:     ~15x
+==================================================
+⏱️  Main reconstruction: 455.429 seconds
+⏱️  Post-processing: 0.072 seconds
+⏱️  Saving results: 0.448 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.000s (  0.0%)
+Data loading & prep:        0.953s (  0.2%)
+Mask creation:              0.001s (  0.0%)
+Model loading & setup:      2.013s (  0.4%)
+Directory setup:            0.003s (  0.0%)
+K-space operations:         0.001s (  0.0%)
+Sensitivity estimation:     0.003s (  0.0%)
+Inference setup:            0.000s (  0.0%)
+Main reconstruction:      455.429s ( 99.2%)
+Post-processing:            0.072s (  0.0%)
+Saving results:             0.448s (  0.1%)
+------------------------------------------------------------
+TOTAL TIME:               458.923s
+============================================================
+
+✅ SENSE Reconstruction completed!
+📈 MSE: 0.007512
+📈 PSNR: 23.17 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SENSE
+
+🚀 SENSE speedup: ~15x faster than per-coil processing!
+============================================================
+🚀 Starting Parallel SSOS MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.000 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000060.h5
+Loaded slice 16/33 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000060.h5
+K-space shape: (15, 640, 372)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 0.948 seconds
+⏱️  Mask creation: 0.000 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 1.987 seconds
+⏱️  Directory setup: 0.005 seconds
+
+🔄 Setting up Parallel SSOS inference pipeline...
+   🚀 Using PARALLEL SSOS (all coils processed simultaneously)
+⏱️  Parallel SSOS Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+⏱️  K-space operations: 0.001 seconds
+
+🎯 Beginning inference with 600 steps...
+
+🔄 Starting Parallel SSOS PC Sampler with 600 steps, 15 coils
+   🚀 Processing ALL coils simultaneously (not sequentially)
+⏱️  Initial sampling: 0.0216 seconds
+  Step 100: 11.309s | Pred: 4.8491s (all coils) | Corr: 4.8452s (all coils)
+  Step 200: 11.301s | Pred: 4.8476s (all coils) | Corr: 4.8458s (all coils)
+  Step 300: 11.304s | Pred: 4.8479s (all coils) | Corr: 4.8454s (all coils)
+  Step 400: 11.322s | Pred: 4.8475s (all coils) | Corr: 4.8446s (all coils)
+  Step 500: 11.276s | Pred: 4.8467s (all coils) | Corr: 4.8444s (all coils)
+
+📊 PARALLEL SSOS PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:    2897.054s ( 49.7%)
+Total corrector time:    2907.086s ( 49.9%)
+Total save time:           19.329s (  0.3%)
+Initial sampling:           0.022s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:      5823.616s
+Average per step:           9.706s
+Model calls per step:    2 (vs 30 for sequential)
+Speedup vs sequential:   ~15x
+==================================================
+⏱️  Main reconstruction: 5823.616 seconds
+⏱️  Post-processing: 0.975 seconds
+⏱️  Saving results: 0.130 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.000s (  0.0%)
+Data loading & prep:        0.948s (  0.0%)
+Mask creation:              0.000s (  0.0%)
+Model loading & setup:      1.987s (  0.0%)
+Directory setup:            0.005s (  0.0%)
+Inference setup:            0.000s (  0.0%)
+K-space operations:         0.001s (  0.0%)
+Main reconstruction:     5823.616s ( 99.9%)
+Post-processing:            0.975s (  0.0%)
+Saving results:             0.130s (  0.0%)
+------------------------------------------------------------
+TOTAL TIME:              5828.825s
+============================================================
+
+✅ Parallel SSOS Reconstruction completed!
+📈 MSE: 0.002975
+📈 PSNR: 28.02 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SSOS
+
+🚀 Parallel SSOS speedup: ~15x faster than sequential processing!
+============================================================
+🚀 Starting Parallel SSOS MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.000 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000089.h5
+Loaded slice 19/39 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000089.h5
+K-space shape: (15, 640, 368)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 1.015 seconds
+⏱️  Mask creation: 0.001 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 5.065 seconds
+⏱️  Directory setup: 0.003 seconds
+
+🔄 Setting up Parallel SSOS inference pipeline...
+   🚀 Using PARALLEL SSOS (all coils processed simultaneously)
+⏱️  Parallel SSOS Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+⏱️  K-space operations: 0.001 seconds
+
+🎯 Beginning inference with 600 steps...
+
+🔄 Starting Parallel SSOS PC Sampler with 600 steps, 15 coils
+   🚀 Processing ALL coils simultaneously (not sequentially)
+⏱️  Initial sampling: 0.0186 seconds
+  Step 100: 11.315s | Pred: 4.8499s (all coils) | Corr: 4.8458s (all coils)
+  Step 200: 11.313s | Pred: 4.8483s (all coils) | Corr: 4.8462s (all coils)
+  Step 300: 11.302s | Pred: 4.8466s (all coils) | Corr: 4.8467s (all coils)
+  Step 400: 11.317s | Pred: 4.8478s (all coils) | Corr: 4.8438s (all coils)
+  Step 500: 11.284s | Pred: 4.8481s (all coils) | Corr: 4.8446s (all coils)
+
+📊 PARALLEL SSOS PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:    2896.421s ( 49.7%)
+Total corrector time:    2907.322s ( 49.9%)
+Total save time:           19.324s (  0.3%)
+Initial sampling:           0.019s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:      5823.233s
+Average per step:           9.705s
+Model calls per step:    2 (vs 30 for sequential)
+Speedup vs sequential:   ~15x
+==================================================
+⏱️  Main reconstruction: 5823.233 seconds
+⏱️  Post-processing: 0.975 seconds
+⏱️  Saving results: 0.118 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.000s (  0.0%)
+Data loading & prep:        1.015s (  0.0%)
+Mask creation:              0.001s (  0.0%)
+Model loading & setup:      5.065s (  0.1%)
+Directory setup:            0.003s (  0.0%)
+Inference setup:            0.000s (  0.0%)
+K-space operations:         0.001s (  0.0%)
+Main reconstruction:     5823.233s ( 99.9%)
+Post-processing:            0.975s (  0.0%)
+Saving results:             0.118s (  0.0%)
+------------------------------------------------------------
+TOTAL TIME:              5830.411s
+============================================================
+
+✅ Parallel SSOS Reconstruction completed!
+📈 MSE: 0.002571
+📈 PSNR: 28.74 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SSOS
+
+🚀 Parallel SSOS speedup: ~15x faster than sequential processing!
+============================================================
+🚀 Starting Parallel SSOS MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.000 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000094.h5
+Loaded slice 16/33 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000094.h5
+K-space shape: (15, 640, 368)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 0.992 seconds
+⏱️  Mask creation: 0.001 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 5.112 seconds
+⏱️  Directory setup: 0.002 seconds
+
+🔄 Setting up Parallel SSOS inference pipeline...
+   🚀 Using PARALLEL SSOS (all coils processed simultaneously)
+⏱️  Parallel SSOS Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+⏱️  K-space operations: 0.001 seconds
+
+🎯 Beginning inference with 600 steps...
+
+🔄 Starting Parallel SSOS PC Sampler with 600 steps, 15 coils
+   🚀 Processing ALL coils simultaneously (not sequentially)
+⏱️  Initial sampling: 0.0195 seconds
+  Step 100: 11.337s | Pred: 4.8472s (all coils) | Corr: 4.8438s (all coils)
+  Step 200: 11.304s | Pred: 4.8469s (all coils) | Corr: 4.8468s (all coils)
+  Step 300: 11.313s | Pred: 4.8489s (all coils) | Corr: 4.8465s (all coils)
+  Step 400: 11.323s | Pred: 4.8492s (all coils) | Corr: 4.8444s (all coils)
+  Step 500: 11.308s | Pred: 4.8490s (all coils) | Corr: 4.8464s (all coils)
+
+📊 PARALLEL SSOS PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:    2896.522s ( 49.7%)
+Total corrector time:    2907.512s ( 49.9%)
+Total save time:           19.480s (  0.3%)
+Initial sampling:           0.019s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:      5823.675s
+Average per step:           9.706s
+Model calls per step:    2 (vs 30 for sequential)
+Speedup vs sequential:   ~15x
+==================================================
+⏱️  Main reconstruction: 5823.675 seconds
+⏱️  Post-processing: 0.975 seconds
+⏱️  Saving results: 0.118 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.000s (  0.0%)
+Data loading & prep:        0.992s (  0.0%)
+Mask creation:              0.001s (  0.0%)
+Model loading & setup:      5.112s (  0.1%)
+Directory setup:            0.002s (  0.0%)
+Inference setup:            0.000s (  0.0%)
+K-space operations:         0.001s (  0.0%)
+Main reconstruction:     5823.675s ( 99.9%)
+Post-processing:            0.975s (  0.0%)
+Saving results:             0.118s (  0.0%)
+------------------------------------------------------------
+TOTAL TIME:              5830.875s
+============================================================
+
+✅ Parallel SSOS Reconstruction completed!
+📈 MSE: 0.001058
+📈 PSNR: 30.42 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SSOS
+
+🚀 Parallel SSOS speedup: ~15x faster than sequential processing!
+============================================================
+🚀 Starting Parallel SSOS MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.000 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000311.h5
+Loaded slice 15/30 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000311.h5
+K-space shape: (15, 640, 322)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 0.745 seconds
+⏱️  Mask creation: 0.000 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 5.345 seconds
+⏱️  Directory setup: 0.002 seconds
+
+🔄 Setting up Parallel SSOS inference pipeline...
+   🚀 Using PARALLEL SSOS (all coils processed simultaneously)
+⏱️  Parallel SSOS Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+⏱️  K-space operations: 0.001 seconds
+
+🎯 Beginning inference with 600 steps...
+
+🔄 Starting Parallel SSOS PC Sampler with 600 steps, 15 coils
+   🚀 Processing ALL coils simultaneously (not sequentially)
+⏱️  Initial sampling: 0.0184 seconds
+  Step 100: 11.304s | Pred: 4.8487s (all coils) | Corr: 4.8460s (all coils)
+  Step 200: 11.302s | Pred: 4.8474s (all coils) | Corr: 4.8464s (all coils)
+  Step 300: 11.306s | Pred: 4.8482s (all coils) | Corr: 4.8473s (all coils)
+  Step 400: 11.313s | Pred: 4.8490s (all coils) | Corr: 4.8454s (all coils)
+  Step 500: 11.301s | Pred: 4.8493s (all coils) | Corr: 4.8464s (all coils)
+
+📊 PARALLEL SSOS PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:    2896.594s ( 49.7%)
+Total corrector time:    2907.632s ( 49.9%)
+Total save time:           19.316s (  0.3%)
+Initial sampling:           0.018s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:      5823.765s
+Average per step:           9.706s
+Model calls per step:    2 (vs 30 for sequential)
+Speedup vs sequential:   ~15x
+==================================================
+⏱️  Main reconstruction: 5823.765 seconds
+⏱️  Post-processing: 0.975 seconds
+⏱️  Saving results: 0.125 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.000s (  0.0%)
+Data loading & prep:        0.745s (  0.0%)
+Mask creation:              0.000s (  0.0%)
+Model loading & setup:      5.345s (  0.1%)
+Directory setup:            0.002s (  0.0%)
+Inference setup:            0.000s (  0.0%)
+K-space operations:         0.001s (  0.0%)
+Main reconstruction:     5823.765s ( 99.9%)
+Post-processing:            0.975s (  0.0%)
+Saving results:             0.125s (  0.0%)
+------------------------------------------------------------
+TOTAL TIME:              5830.959s
+============================================================
+
+✅ Parallel SSOS Reconstruction completed!
+📈 MSE: 0.002201
+📈 PSNR: 29.07 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SSOS
+
+🚀 Parallel SSOS speedup: ~15x faster than sequential processing!
+============================================================
+🚀 Starting Parallel SSOS MRI Reconstruction Pipeline
+============================================================
+Initializing...
+🔧 Using device: cuda:0
+⏱️  Configuration setup: 0.000 seconds
+
+📁 Loading data from: /scratch/ml8347/MRI/train/train_dataset/compare/file1000331.h5
+Loaded slice 17/34 from /scratch/ml8347/MRI/train/train_dataset/compare/file1000331.h5
+K-space shape: (15, 640, 368)
+Final image shape: torch.Size([1, 15, 320, 320])
+⏱️  Data loading & preprocessing: 0.953 seconds
+⏱️  Mask creation: 0.001 seconds
+
+🧠 Loading model checkpoint: /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+loaded checkpoint dir from /scratch/ml8347/MRI/train/score/workdir3/fastmri_multicoil_knee_320/checkpoints/checkpoint_50.pth
+⏱️  Model loading & setup: 5.458 seconds
+⏱️  Directory setup: 0.002 seconds
+
+🔄 Setting up Parallel SSOS inference pipeline...
+   🚀 Using PARALLEL SSOS (all coils processed simultaneously)
+⏱️  Parallel SSOS Setup time: 0.0000 seconds
+⏱️  Inference setup: 0.000 seconds
+⏱️  K-space operations: 0.000 seconds
+
+🎯 Beginning inference with 600 steps...
+
+🔄 Starting Parallel SSOS PC Sampler with 600 steps, 15 coils
+   🚀 Processing ALL coils simultaneously (not sequentially)
+⏱️  Initial sampling: 0.0184 seconds
+  Step 100: 11.370s | Pred: 4.8527s (all coils) | Corr: 4.8485s (all coils)
+  Step 200: 11.369s | Pred: 4.8528s (all coils) | Corr: 4.8504s (all coils)
+  Step 300: 11.368s | Pred: 4.8529s (all coils) | Corr: 4.8488s (all coils)
+  Step 400: 11.372s | Pred: 4.8506s (all coils) | Corr: 4.8491s (all coils)
+  Step 500: 11.332s | Pred: 4.8517s (all coils) | Corr: 4.8477s (all coils)
+
+📊 PARALLEL SSOS PC SAMPLER TIMING SUMMARY
+==================================================
+Total predictor time:    2898.534s ( 49.7%)
+Total corrector time:    2909.271s ( 49.9%)
+Total save time:           19.866s (  0.3%)
+Initial sampling:           0.018s (  0.0%)
+--------------------------------------------------
+TOTAL SAMPLER TIME:      5827.892s
+Average per step:           9.713s
+Model calls per step:    2 (vs 30 for sequential)
+Speedup vs sequential:   ~15x
+==================================================
+⏱️  Main reconstruction: 5827.893 seconds
+⏱️  Post-processing: 0.975 seconds
+⏱️  Saving results: 0.126 seconds
+
+============================================================
+📊 TIMING SUMMARY
+============================================================
+Configuration setup:        0.000s (  0.0%)
+Data loading & prep:        0.953s (  0.0%)
+Mask creation:              0.001s (  0.0%)
+Model loading & setup:      5.458s (  0.1%)
+Directory setup:            0.002s (  0.0%)
+Inference setup:            0.000s (  0.0%)
+K-space operations:         0.000s (  0.0%)
+Main reconstruction:     5827.893s ( 99.9%)
+Post-processing:            0.975s (  0.0%)
+Saving results:             0.126s (  0.0%)
+------------------------------------------------------------
+TOTAL TIME:              5835.409s
+============================================================
+
+✅ Parallel SSOS Reconstruction completed!
+📈 MSE: 0.003517
+📈 PSNR: 26.06 dB
+💾 Results saved to: /scratch/ml8347/MRI/train/compare/outputs_equi_acc4/multi-coil/SSOS
+
+🚀 Parallel SSOS speedup: ~15x faster than sequential processing!
+Wrote report: /scratch/ml8347/MRI/train/compare/results_equi_acc4.txt
+Job finished.

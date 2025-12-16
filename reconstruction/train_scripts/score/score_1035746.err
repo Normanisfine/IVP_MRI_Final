@@ -1,0 +1,14 @@
+I1019 16:59:09.113384 22986801145664 run_lib_fastmri.py:190] Starting training loop at step 0.
+I1019 16:59:42.589358 22986801145664 run_lib_fastmri.py:204] step: 25, training_loss: 5.12573e+04
+I1019 17:00:10.528419 22986801145664 run_lib_fastmri.py:204] step: 50, training_loss: 5.11144e+04
+I1019 17:00:38.379723 22986801145664 run_lib_fastmri.py:204] step: 75, training_loss: 5.11154e+04
+I1019 17:01:05.546658 22986801145664 run_lib_fastmri.py:204] step: 100, training_loss: 4.90792e+04
+I1019 17:01:33.800829 22986801145664 run_lib_fastmri.py:204] step: 125, training_loss: 4.81009e+04
+I1019 17:08:27.001394 22986801145664 run_lib_fastmri.py:204] step: 25, training_loss: 4.35639e+04
+I1019 17:08:53.491473 22986801145664 run_lib_fastmri.py:204] step: 50, training_loss: 4.07904e+04
+I1019 17:09:20.796539 22986801145664 run_lib_fastmri.py:204] step: 75, training_loss: 3.81060e+04
+I1019 17:09:48.438250 22986801145664 run_lib_fastmri.py:204] step: 100, training_loss: 3.33535e+04
+I1019 17:10:17.123157 22986801145664 run_lib_fastmri.py:204] step: 125, training_loss: 3.13630e+04
+[... training continues with decreasing loss ...]
+I1020 07:58:47.635650 22986801145664 run_lib_fastmri.py:204] step: 125, training_loss: 3.06220e+01
+slurmstepd: error: *** JOB 1035746 ON ga013 CANCELLED AT 2025-10-20T07:58:53 DUE TO TIME LIMIT ***

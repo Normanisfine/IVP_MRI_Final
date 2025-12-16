@@ -1,0 +1,9 @@
+I1211 23:40:27.266581 22588304611136 run_lib_fastmri.py:190] Starting training loop at step 0.
+I1211 23:41:13.793889 22588304611136 run_lib_fastmri.py:204] step: 25, training_loss: 2.10899e+01
+I1211 23:41:57.429154 22588304611136 run_lib_fastmri.py:204] step: 50, training_loss: 2.11986e+01
+I1211 23:42:39.205935 22588304611136 run_lib_fastmri.py:204] step: 75, training_loss: 2.08323e+01
+I1211 23:43:21.573820 22588304611136 run_lib_fastmri.py:204] step: 100, training_loss: 2.04215e+01
+I1211 23:44:03.596554 22588304611136 run_lib_fastmri.py:204] step: 125, training_loss: 2.03193e+01
+[... training continues with decreasing loss over multiple epochs ...]
+I1212 14:39:45.996487 22588304611136 run_lib_fastmri.py:204] step: 50, training_loss: 1.29504e+01
+slurmstepd: error: *** JOB 3316079 ON gr001 CANCELLED AT 2025-12-12T14:40:03 DUE TO TIME LIMIT ***
