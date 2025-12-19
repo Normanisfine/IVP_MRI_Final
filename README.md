@@ -53,7 +53,7 @@ python comparison/test_varnet_compare.py
 ## Segmentation
 
 Prostate MRI segmentation using MedSAM2, ResNet-UNet, and nnU-Net. See `segmentation/README.md`.
-Raw and processed data is available at [Google Drive]()
+Raw and processed data is available at [Google Drive](https://drive.google.com/file/d/1VgHM50tVTUltojJX5XuHhXkGFjRJBNkT/view?usp=sharing)
 
 ## References
 
