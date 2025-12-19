@@ -1,0 +1,36 @@
+# Select the proper PyTorch build (uncomment ONE of the index URLs below if using GPU/CPU wheels)
+# CUDA 12.1:
+# --index-url https://download.pytorch.org/whl/cu121
+# CUDA 11.8:
+--extra-index-url https://download.pytorch.org/whl/cu118
+# CPU-only wheels:
+# --index-url https://download.pytorch.org/whl/cpu
+
+# Core deep learning
+torch
+torchvision
+timm
+segmentation-models-pytorch
+
+# Medical imaging IO and toolkits
+nibabel
+SimpleITK
+monai
+torchio
+
+# Augmentations and image utils
+albumentations
+opencv-python-headless
+scikit-image
+pillow
+
+# Numerics and helpers
+numpy
+scipy
+tqdm
+tensorboard
+matplotlib
+pandas
+
+# MedSAM2 (install from local directory)
+# cd MedSAM2 && pip install -e ".[dev]"

@@ -1,0 +1,3 @@
+[submodule "segmentation/MedSAM2"]
+	path = segmentation/MedSAM2
+	url = https://github.com/bowang-lab/MedSAM2.git

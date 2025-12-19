@@ -1,0 +1,57 @@
+# Large data files
+*.pt
+*.pth
+*.npy
+*.npz
+*.nii
+*.nii.gz
+
+# Singularity/HPC artifacts
+*.ext3
+overlay*.ext3
+Miniconda*.sh
+slurm-*.out
+*.out
+*.err
+
+# Output directories
+logs/
+output/
+inference/
+scores/
+finetune_*/
+checkpoints/
+
+# Data directories
+data/
+npz/
+
+# Segmentation outputs
+segmentation/inference/
+segmentation/scores/
+segmentation/npz/
+segmentation/finetune_*/
+segmentation/checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/

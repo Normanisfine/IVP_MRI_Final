@@ -6,11 +6,8 @@ Final project for MRI reconstruction and segmentation using deep learning.
 
 ```
 IVP_MRI_Final/
-├── reconstruction/         # MRI reconstruction (complete)
-│   ├── train_scripts/     # Score & VarNet training
-│   ├── data_split/        # Dataset splitting
-│   └── comparison/        # Evaluation results
-├── segmentation/          # [TODO] Knee tissue segmentation
+├── reconstruction/         # MRI reconstruction
+├── segmentation/          # Prostate MRI segmentation
 └── IVP_final.pdf          # Final report
 ```
 
@@ -53,7 +50,13 @@ python comparison/test_score_compare.py
 python comparison/test_varnet_compare.py
 ```
 
+## Segmentation
+
+Prostate MRI segmentation using MedSAM2, ResNet-UNet, and nnU-Net. See `segmentation/README.md`.
+Raw and processed data is available at [Google Drive]()
+
 ## References
 
 - Modified Score-MRI: [github.com/Normanisfine/score-MRI-mod](https://github.com/Normanisfine/score-MRI-mod)
 - FastMRI: [github.com/facebookresearch/fastMRI](https://github.com/facebookresearch/fastMRI)
+- MedSAM2: [github.com/bowang-lab/MedSAM2](https://github.com/bowang-lab/MedSAM2)
